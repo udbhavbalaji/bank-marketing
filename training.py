@@ -4,18 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score
-
-
-class FeatureEngineering:
-
-    def __init__(self, df):
-        self.df = df
-        self.GetDummies()
-
-    def GetDummies(self):
-        self.df = pd.get_dummies(self.df,
-                                 columns=["job", "education", "housing", "loan", "contact", "poutcome", "month", "marital"],
-                                 prefix=["job", "edu", "house", "loan", "contact", "outcome", "month", "marital"])
+from engineering import FeatureEngineering
 
 
 class ModelTraining(FeatureEngineering):
